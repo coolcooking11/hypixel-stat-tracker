@@ -1,4 +1,8 @@
 import { google } from "googleapis";
+process.on("unhandledRejection", (error) => {
+    console.error("Error:\n", error.message || error)
+    process.exit(1)
+})
 // processes newline characters in google private key
 const googleKey = process.env.GOOGLE_KEY.replace(/\\n/g, '\n')
 const auth = new google.auth.GoogleAuth({
@@ -183,55 +187,55 @@ async function updateTab(name) {
     let losses
     let gamesPlayed
     if (name === "Bedwars Solos") {
-        kills = data.player.stats.Bedwars.eight_one_kills_bedwars
-        deaths = data.player.stats.Bedwars.eight_one_deaths_bedwars
-        finalKills = data.player.stats.Bedwars.eight_one_final_kills_bedwars
-        finalDeaths = data.player.stats.Bedwars.eight_one_final_deaths_bedwars
-        bedsBroken = data.player.stats.Bedwars.eight_one_beds_broken_bedwars
-        bedsLost = data.player.stats.Bedwars.eight_one_beds_lost_bedwars
-        wins = data.player.stats.Bedwars.eight_one_wins_bedwars
-        losses = data.player.stats.Bedwars.eight_one_losses_bedwars
-        gamesPlayed = data.player.stats.Bedwars.eight_one_games_played_bedwars
+        kills = data.player.stats.Bedwars.eight_one_kills_bedwars || 0
+        deaths = data.player.stats.Bedwars.eight_one_deaths_bedwars || 0
+        finalKills = data.player.stats.Bedwars.eight_one_final_kills_bedwars || 0
+        finalDeaths = data.player.stats.Bedwars.eight_one_final_deaths_bedwars || 0
+        bedsBroken = data.player.stats.Bedwars.eight_one_beds_broken_bedwars || 0
+        bedsLost = data.player.stats.Bedwars.eight_one_beds_lost_bedwars || 0
+        wins = data.player.stats.Bedwars.eight_one_wins_bedwars || 0
+        losses = data.player.stats.Bedwars.eight_one_losses_bedwars || 0
+        gamesPlayed = data.player.stats.Bedwars.eight_one_games_played_bedwars || 0
     } else if (name === "Bedwars Duos") {
-        kills = data.player.stats.Bedwars.eight_two_kills_bedwars
-        deaths = data.player.stats.Bedwars.eight_two_deaths_bedwars
-        finalKills = data.player.stats.Bedwars.eight_two_final_kills_bedwars
-        finalDeaths = data.player.stats.Bedwars.eight_two_final_deaths_bedwars
-        bedsBroken = data.player.stats.Bedwars.eight_two_beds_broken_bedwars
-        bedsLost = data.player.stats.Bedwars.eight_two_beds_lost_bedwars
-        wins = data.player.stats.Bedwars.eight_two_wins_bedwars
-        losses = data.player.stats.Bedwars.eight_two_losses_bedwars
-        gamesPlayed = data.player.stats.Bedwars.eight_two_games_played_bedwars
+        kills = data.player.stats.Bedwars.eight_two_kills_bedwars || 0
+        deaths = data.player.stats.Bedwars.eight_two_deaths_bedwars || 0
+        finalKills = data.player.stats.Bedwars.eight_two_final_kills_bedwars || 0
+        finalDeaths = data.player.stats.Bedwars.eight_two_final_deaths_bedwars || 0
+        bedsBroken = data.player.stats.Bedwars.eight_two_beds_broken_bedwars || 0
+        bedsLost = data.player.stats.Bedwars.eight_two_beds_lost_bedwars || 0
+        wins = data.player.stats.Bedwars.eight_two_wins_bedwars || 0
+        losses = data.player.stats.Bedwars.eight_two_losses_bedwars || 0
+        gamesPlayed = data.player.stats.Bedwars.eight_two_games_played_bedwars || 0
     } else if (name === "Bedwars Threes") {
-        kills = data.player.stats.Bedwars.four_three_kills_bedwars
-        deaths = data.player.stats.Bedwars.four_three_deaths_bedwars
-        finalKills = data.player.stats.Bedwars.four_three_final_kills_bedwars
-        finalDeaths = data.player.stats.Bedwars.four_three_final_deaths_bedwars
-        bedsBroken = data.player.stats.Bedwars.four_three_beds_broken_bedwars
-        bedsLost = data.player.stats.Bedwars.four_three_beds_lost_bedwars
-        wins = data.player.stats.Bedwars.four_three_wins_bedwars
-        losses = data.player.stats.Bedwars.four_three_losses_bedwars
-        gamesPlayed = data.player.stats.Bedwars.four_three_games_played_bedwars
+        kills = data.player.stats.Bedwars.four_three_kills_bedwars || 0
+        deaths = data.player.stats.Bedwars.four_three_deaths_bedwars || 0
+        finalKills = data.player.stats.Bedwars.four_three_final_kills_bedwars || 0
+        finalDeaths = data.player.stats.Bedwars.four_three_final_deaths_bedwars || 0
+        bedsBroken = data.player.stats.Bedwars.four_three_beds_broken_bedwars || 0
+        bedsLost = data.player.stats.Bedwars.four_three_beds_lost_bedwars || 0
+        wins = data.player.stats.Bedwars.four_three_wins_bedwars || 0
+        losses = data.player.stats.Bedwars.four_three_losses_bedwars || 0
+        gamesPlayed = data.player.stats.Bedwars.four_three_games_played_bedwars || 0
     } else if (name === "Bedwars Fours") {
-        kills = data.player.stats.Bedwars.four_four_kills_bedwars
-        deaths = data.player.stats.Bedwars.four_four_deaths_bedwars
-        finalKills = data.player.stats.Bedwars.four_four_final_kills_bedwars
-        finalDeaths = data.player.stats.Bedwars.four_four_final_deaths_bedwars
-        bedsBroken = data.player.stats.Bedwars.four_four_beds_broken_bedwars
-        bedsLost = data.player.stats.Bedwars.four_four_beds_lost_bedwars
-        wins = data.player.stats.Bedwars.four_four_wins_bedwars
-        losses = data.player.stats.Bedwars.four_four_losses_bedwars
-        gamesPlayed = data.player.stats.Bedwars.four_four_games_played_bedwars
+        kills = data.player.stats.Bedwars.four_four_kills_bedwars || 0
+        deaths = data.player.stats.Bedwars.four_four_deaths_bedwars || 0
+        finalKills = data.player.stats.Bedwars.four_four_final_kills_bedwars || 0
+        finalDeaths = data.player.stats.Bedwars.four_four_final_deaths_bedwars || 0
+        bedsBroken = data.player.stats.Bedwars.four_four_beds_broken_bedwars || 0
+        bedsLost = data.player.stats.Bedwars.four_four_beds_lost_bedwars || 0
+        wins = data.player.stats.Bedwars.four_four_wins_bedwars || 0
+        losses = data.player.stats.Bedwars.four_four_losses_bedwars || 0
+        gamesPlayed = data.player.stats.Bedwars.four_four_games_played_bedwars || 0
     } else if (name === "Bedwars 4v4") {
-        kills = data.player.stats.Bedwars.two_four_kills_bedwars
-        deaths = data.player.stats.Bedwars.two_four_deaths_bedwars
-        finalKills = data.player.stats.Bedwars.two_four_final_kills_bedwars
-        finalDeaths = data.player.stats.Bedwars.two_four_final_deaths_bedwars
-        bedsBroken = data.player.stats.Bedwars.two_four_beds_broken_bedwars
-        bedsLost = data.player.stats.Bedwars.two_four_beds_lost_bedwars
-        wins = data.player.stats.Bedwars.two_four_wins_bedwars
-        losses = data.player.stats.Bedwars.two_four_losses_bedwars
-        gamesPlayed = data.player.stats.Bedwars.two_four_games_played_bedwars
+        kills = data.player.stats.Bedwars.two_four_kills_bedwars || 0
+        deaths = data.player.stats.Bedwars.two_four_deaths_bedwars || 0
+        finalKills = data.player.stats.Bedwars.two_four_final_kills_bedwars || 0
+        finalDeaths = data.player.stats.Bedwars.two_four_final_deaths_bedwars || 0
+        bedsBroken = data.player.stats.Bedwars.two_four_beds_broken_bedwars || 0
+        bedsLost = data.player.stats.Bedwars.two_four_beds_lost_bedwars || 0
+        wins = data.player.stats.Bedwars.two_four_wins_bedwars || 0
+        losses = data.player.stats.Bedwars.two_four_losses_bedwars || 0
+        gamesPlayed = data.player.stats.Bedwars.two_four_games_played_bedwars || 0
     }
     const timeZone = process.env.TIMEZONE || "America/New_York"
     const date = new Date()
@@ -248,7 +252,7 @@ async function updateTab(name) {
         range: `${name}!A:AA`
     })
     // gets the last row of the sheet (previous day's data)
-    const previousRow = response.data.values.at(-1)
+    let previousRow = response.data.values.at(-1)
     // variable containing today's data
     let newData = [[yesterday, kills, deaths, calculateRatio(kills, deaths), finalKills, finalDeaths, calculateRatio(finalKills, finalDeaths), bedsBroken, bedsLost, calculateRatio(bedsBroken, bedsLost), wins, losses, calculateRatio(wins, losses), gamesPlayed, "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-"]]
     // if there is data present
