@@ -41,10 +41,10 @@ if (tabs.includes("Config")) {
     }
 } else {
     // initializes the spreadsheet if it has not been initalized
-    initalize()
+    initialize()
 }
 // creates config file
-async function initalize() {
+async function initialize() {
     await sheets.spreadsheets.batchUpdate({
         spreadsheetId: process.env.SPREADSHEET_ID,
         requestBody: {
