@@ -14,11 +14,11 @@ jobs:
     steps:
       # 1. Downloads your repository code to GitHub's server
       - name: Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       # 2. Sets up Node.js
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: '22'
 
@@ -30,12 +30,12 @@ jobs:
       - name: Run Stats Script
         env:
           # Secrets (Encrypted)
-          HYPIXEL_API_KEY: ${{ secrets.HYPIXEL_KEY }}
-          GOOGLE_PRIVATE_KEY: ${{ secrets.GOOGLE_KEY }}
-          GOOGLE_CLIENT_EMAIL: ${{ secrets.GOOGLE_EMAIL }}
+          HYPIXEL_KEY: ${{ secrets.HYPIXEL_KEY }}
+          GOOGLE_KEY: ${{ secrets.GOOGLE_KEY }}
+          GOOGLE_EMAIL: ${{ secrets.GOOGLE_EMAIL }}
 
           # Variables (Configuration)
           SPREADSHEET_ID: ${{ vars.SPREADSHEET_ID }}
-          PLAYER_UUID: ${{ vars.UUID }}
+          UUID: ${{ vars.UUID }}
           TIMEZONE: ${{ vars.TIMEZONE }}
         run: node index.js
